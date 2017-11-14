@@ -8,25 +8,50 @@ This is empty on purpose! Your code to build the resume will go here.
 
  $('#main').append(funThoughts); */
 
-var formattedName= HTMLheaderName.replace("%data%", "Alfredo Diaz-Swain");
-var formattedRole= HTMLheaderRole.replace("%data%", "Front-End Web Developer");
-var formattedSkills= HTMLskills.replace("%data%", "['bilingual', 'HTML & CSS', 'JavaScript', 'teamwork']");
-var formattedMobile= HTMLmobile.replace("%data%", "415-632-2800"); 
-var formattedLocation= HTMLlocation.replace("%data%", "1599 Hays St, San Leandro, CA 94577"); 
-var formattedEmail= HTMLemail.replace("%data%", "diazalfredo83@gmail.com");
-var picture= HTMLbioPic.replace("%data%", "/Documents/Alfredo/Udacity/frontend-nanodegree-resume/images/fry.jpg");
-var welcome= HTMLwelcomeMsg.replace("%data%", "The world starts when we let our imagination goes!");
+var bio = {
+    "name" : "Alfredo Diaz-Swain",
+    "role": "Front-End Web Developer",
+    "contacts": {
+        "mobile": "650-555-5555",
+        "email": "john@example.com",
+        "github": "johndoe",
+        "twitter": "@johndoe",
+        "location": "San Leandro, CA"
+    },
+    "welcomeMessage": "The world starts when we let our imagination goes!",
+    "skills": [
+        'bilingual', 'HTML & CSS', 'JavaScript', 'teamwork'
+    ],
+    "bioPic": "images/fry.jpg"
+};
 
-var bio= {
-	"name": formattedName, 
-	"role": formattedRole, 
-	"skills": formattedSkills, 
-	"phone": formattedMobile, 
-	"email": formattedEmail,
-	"location": formattedLocation,
-	"picture": picture, 
-	"message": welcome 
-}
+var name= bio.name;
+var formattedName= HTMLheaderName.replace("%data%", name);
+$("#header").append(formattedName);
+
+var role= bio.role;
+var formattedRole= HTMLheaderRole.replace("%data%", role);
+$("#header").append(formattedRole);
+
+var skills= bio.skills;
+var formattedSkills= HTMLskills.replace("%data%", skills);
+
+var contacMobile= bio.contacts.mobile;
+var formattedMobile= HTMLmobile.replace("%data%", contacMobile);
+$("#topContacts").prepend(formattedMobile);
+
+var contactLocation= bio.contacts.location; 
+var formattedLocation= HTMLlocation.replace("%data%", contactLocation);
+
+var contactEmail= bio.contacts.email; 
+var formattedEmail= HTMLemail.replace("%data%", contactEmail);
+
+var bioPic= bio.bioPic;
+var picture= HTMLbioPic.replace("%data%", bioPic);
+
+var message= bio.welcomeMessage;
+var welcome= HTMLwelcomeMsg.replace("%data%", message);
+
 
 $('#header').prepend(bio);
 //$("#header").prepend(formattedName);
