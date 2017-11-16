@@ -20,7 +20,7 @@ var bio = {
     },
     "welcomeMessage": "The world starts when we let our imagination goes!",
     "skills": [
-        'bilingual', 'HTML & CSS', 'JavaScript', 'teamwork'
+        'bilingual', ' HTML & CSS', ' JavaScript', ' teamwork'
     ],
     "bioPic": "images/fry.jpg"
 };
@@ -46,6 +46,10 @@ var contactEmail= bio.contacts.email;
 var formattedEmail= HTMLemail.replace("%data%", contactEmail);
 $("#topContacts").prepend(formattedEmail);
 
+var github= bio.github;
+var formattedGit= HTMLgithub.replace("%data%", github);
+$("#topContacts").append(formattedGit);
+
 var contactLocation= bio.contacts.location; 
 var formattedLocation= HTMLlocation.replace("%data%", contactLocation);
 $("#topContacts").append(contactLocation);
@@ -56,7 +60,30 @@ $("#header").prepend(picture);
 
 var message= bio.welcomeMessage;
 var welcome= HTMLwelcomeMsg.replace("%data%", message);
-$("#header").prepend(welcome)
+$("#header").append(welcome)
+
+var workExperience= {
+	"currentJob": "Social Media Manager", 
+	"employer": "msm-inc.com", 
+	"yearsWorked": "2015 to present", 
+	"location": "San Francisco" 
+}
+
+var workStart= workExperience.currentJob;
+var currentWork= HTMLworkStart.replace("%data%", workStart);
+$("#workExperience").append(currentWork);
+
+var employer= workExperience.employer;
+var currentEmployer= HTMLworkEmployer.replace("%data%", employer);
+$(".work-entry").append(currentEmployer);
+
+var yearsWorked= workExperience.yearsWorked;
+var workDates= HTMLworkDates.replace("%data%", yearsWorked);
+$(".work-entry").prepend(workDates);
+
+/*var location= workExperience.location;
+var workLocation= HTMLworkLocation.replace("%data%", location);*/
+//$(".work-entry").append(workLocation); Why is it bring an found error message. 
 
 
 //$('#header').prepend(bio);
